@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div style={{ fontFamily: 'sans-serif', padding: 40 }}>
       <h1>Welcome to abc-zyto-scanning</h1>
-      <p>This project is ready to deploy on Vercel and GitHub.</p>
+      <p>Team Ayos</p>
 
       <h2 style={{ marginTop: 40 }}>Image Gallery</h2>
       <div style={{ 
