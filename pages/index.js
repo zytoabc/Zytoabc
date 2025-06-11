@@ -24,10 +24,10 @@ export default function Home() {
     paddingLeft: 40,
     paddingRight: 40,
     minHeight: '100vh',
-    color: darkMode ? '#E8F5E9' : '#1B5E20',
+    color: darkMode ? '#E3F2FD' : '#0D47A1',
     background: darkMode
-      ? 'linear-gradient(to bottom right, #0b3d0b, #1b5e20, #2e7d32)'
-      : 'linear-gradient(to bottom right, #ffffff, #e8f5e9)',
+      ? 'linear-gradient(to bottom right, #0d1b2a, #1b263b, #415a77)'
+      : 'linear-gradient(to bottom right, #e3f2fd, #ffffff)',
     transition: 'all 0.3s ease'
   },
   navbar: {
@@ -36,21 +36,21 @@ export default function Home() {
     left: 0,
     right: 0,
     height: 60,
-    backgroundColor: darkMode ? '#003300' : '#ffffff',
-    color: darkMode ? '#C8E6C9' : '#1B5E20',
+    backgroundColor: darkMode ? '#0b0f2c' : '#ffffff',
+    color: darkMode ? '#BBDEFB' : '#0D47A1',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '0 30px',
-    boxShadow: '0 4px 20px rgba(0,64,0,0.4)',
+    boxShadow: '0 4px 20px rgba(13, 71, 161, 0.4)',
     zIndex: 1000
   },
   button: {
     padding: '10px 18px',
     borderRadius: 8,
     background: darkMode
-      ? 'linear-gradient(45deg, #64dd17, #1b5e20)'
-      : 'linear-gradient(45deg, #a5d6a7, #66bb6a)',
+      ? 'linear-gradient(45deg, #2196f3, #1e88e5)'
+      : 'linear-gradient(45deg, #64b5f6, #1976d2)',
     color: '#fff',
     border: 'none',
     fontWeight: 'bold',
@@ -60,7 +60,7 @@ export default function Home() {
   img: {
     width: '100%',
     borderRadius: 12,
-    boxShadow: '0 8px 16px rgba(0,64,0,0.5)',
+    boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)',
     transform: 'scale(1)',
     transition: 'transform 0.3s ease'
   },
