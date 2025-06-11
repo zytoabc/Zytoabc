@@ -7,4 +7,4 @@ export default function Home() {
       <p>This project is ready to deploy on Vercel and GitHub.</p>
     </div>
   );
-  }
+}
