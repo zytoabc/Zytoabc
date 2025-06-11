@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -25,10 +25,10 @@ export default function Home() {
       paddingLeft: 40,
       paddingRight: 40,
       minHeight: '100vh',
-      color: darkMode ? '#E0E1DD' : '#222',
+      color: darkMode ? '#F8F9FA' : '#222',
       background: darkMode
-        ? 'linear-gradient(to bottom right, #0D1B2A, #1B263B)'
-        : '#f4f4f4',
+        ? 'linear-gradient(to bottom right, #1a2a6c, #b21f1f, #fdbb2d)'
+        : 'linear-gradient(to bottom right, #ffffff, #f5f7fa)',
       transition: 'all 0.3s ease'
     },
     navbar: {
@@ -37,28 +37,36 @@ export default function Home() {
       left: 0,
       right: 0,
       height: 60,
-      backgroundColor: darkMode ? '#1B263B' : '#ffffff',
-      color: darkMode ? '#E0E1DD' : '#222',
+      backgroundColor: darkMode ? '#0f2027' : '#ffffff',
+      color: darkMode ? '#F8F9FA' : '#222',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: '0 30px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
       zIndex: 1000
     },
     button: {
-      padding: '8px 16px',
-      borderRadius: 6,
-      backgroundColor: darkMode ? '#415A77' : '#1877F2',
+      padding: '10px 18px',
+      borderRadius: 8,
+      background: darkMode
+        ? 'linear-gradient(45deg, #00c6ff, #0072ff)'
+        : 'linear-gradient(45deg, #ff6a00, #ee0979)',
       color: '#fff',
       border: 'none',
       fontWeight: 'bold',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      transition: 'transform 0.2s ease'
     },
     img: {
       width: '100%',
-      borderRadius: 8,
-      boxShadow: '0 4px 12px rgba(0,0,0,0.4)'
+      borderRadius: 12,
+      boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
+      transform: 'scale(1)',
+      transition: 'transform 0.3s ease',
+    },
+    imgHover: {
+      transform: 'scale(1.05)',
     }
   };
 
@@ -73,10 +81,11 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <h1 style={{ marginTop: 0 }}>Welcome to abc-zyto-scanning</h1>
-      <p>This project is ready to deploy on Vercel and GitHub.</p>
+      <h1 style={{ marginTop: 0 }}>🌈 Welcome to abc-zyto-scanning</h1>
+      <p>Team Ayos</p>
 
-      <h2 style={{ marginTop: 40 }}>Image Gallery</h2>
+      {/* Image Gallery */}
+      <h2 style={{ marginTop: 40 }}>🖼️ Image Gallery</h2>
       <div
         style={{
           display: 'grid',
@@ -91,6 +100,8 @@ export default function Home() {
             src={`/images/${img}`}
             alt={`Image ${index + 1}`}
             style={styles.img}
+            onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
           />
         ))}
       </div>
@@ -103,16 +114,17 @@ export default function Home() {
         style={{
           display: 'inline-block',
           marginTop: 40,
-          padding: '12px 24px',
-          backgroundColor: '#1877F2',
+          padding: '14px 28px',
+          background: 'linear-gradient(to right, #00c6ff, #0072ff)',
           color: 'white',
-          borderRadius: 8,
+          borderRadius: 10,
           textDecoration: 'none',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          boxShadow: '0 6px 16px rgba(0, 0, 0, 0.4)'
         }}
       >
-        Visit My Facebook
+        🔗 Visit My Facebook
       </a>
     </div>
   );
-        }
+    }
