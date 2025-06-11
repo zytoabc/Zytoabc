@@ -36,6 +36,23 @@ export default function Home() {
           />
         ))}
       </div>
+        <a 
+  href="https://www.facebook.com/joreen.torno.3" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  style={{
+    display: 'inline-block',
+    marginTop: 40,
+    padding: '12px 24px',
+    backgroundColor: '#1877F2',
+    color: 'white',
+    borderRadius: 8,
+    textDecoration: 'none',
+    fontWeight: 'bold'
+  }}
+>
+  Visit My Facebook
+</a>
     </div>
   );
   }
