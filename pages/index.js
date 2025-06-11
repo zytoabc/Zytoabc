@@ -17,57 +17,57 @@ export default function Home() {
   ];
 
   const styles = {
-    page: {
-      fontFamily: 'sans-serif',
-      paddingTop: 80,
-      paddingBottom: 40,
-      paddingLeft: 40,
-      paddingRight: 40,
-      minHeight: '100vh',
-      color: darkMode ? '#F8F9FA' : '#222',
-      background: darkMode
-        ? 'linear-gradient(to bottom right, #1a2a6c, #b21f1f, #fdbb2d)'
-        : 'linear-gradient(to bottom right, #ffffff, #f5f7fa)',
-      transition: 'all 0.3s ease'
-    },
-    navbar: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      height: 60,
-      backgroundColor: darkMode ? '#0f2027' : '#ffffff',
-      color: darkMode ? '#F8F9FA' : '#222',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '0 30px',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
-      zIndex: 1000
-    },
-    button: {
-      padding: '10px 18px',
-      borderRadius: 8,
-      background: darkMode
-        ? 'linear-gradient(45deg, #00c6ff, #0072ff)'
-        : 'linear-gradient(45deg, #ff6a00, #ee0979)',
-      color: '#fff',
-      border: 'none',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-      transition: 'transform 0.2s ease'
-    },
-    img: {
-      width: '100%',
-      borderRadius: 12,
-      boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
-      transform: 'scale(1)',
-      transition: 'transform 0.3s ease',
-    },
-    imgHover: {
-      transform: 'scale(1.05)',
-    }
-  };
+  page: {
+    fontFamily: 'sans-serif',
+    paddingTop: 80,
+    paddingBottom: 40,
+    paddingLeft: 40,
+    paddingRight: 40,
+    minHeight: '100vh',
+    color: darkMode ? '#E8F5E9' : '#1B5E20',
+    background: darkMode
+      ? 'linear-gradient(to bottom right, #0b3d0b, #1b5e20, #2e7d32)'
+      : 'linear-gradient(to bottom right, #ffffff, #e8f5e9)',
+    transition: 'all 0.3s ease'
+  },
+  navbar: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 60,
+    backgroundColor: darkMode ? '#003300' : '#ffffff',
+    color: darkMode ? '#C8E6C9' : '#1B5E20',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '0 30px',
+    boxShadow: '0 4px 20px rgba(0,64,0,0.4)',
+    zIndex: 1000
+  },
+  button: {
+    padding: '10px 18px',
+    borderRadius: 8,
+    background: darkMode
+      ? 'linear-gradient(45deg, #64dd17, #1b5e20)'
+      : 'linear-gradient(45deg, #a5d6a7, #66bb6a)',
+    color: '#fff',
+    border: 'none',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'transform 0.2s ease'
+  },
+  img: {
+    width: '100%',
+    borderRadius: 12,
+    boxShadow: '0 8px 16px rgba(0,64,0,0.5)',
+    transform: 'scale(1)',
+    transition: 'transform 0.3s ease'
+  },
+  imgHover: {
+    transform: 'scale(1.05)'
+  }
+};
 
   return (
     <div style={styles.page}>
