@@ -23,18 +23,23 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ZYTO Balance</title>
-        <meta name="description" content="Empowering personalized wellness through ZYTO bio-communication technology." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="UTF-8" />
-        <meta name="author" content="Joreen Torno" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: \`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXX');\`
-          }}
-        />
-      </Head>
+  <title>ZYTO Balance</title>
+  <meta name="description" content="Empowering personalized wellness through ZYTO bio-communication technology." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charSet="UTF-8" />
+  <meta name="author" content="Joreen Torno" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script
+    dangerouslySetInnerHTML={{
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+      `.trim()
+    }}
+  />
+</Head>
 
       <div className={\`\${styles.page} \${darkMode ? styles.dark : styles.light}\`}>
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
