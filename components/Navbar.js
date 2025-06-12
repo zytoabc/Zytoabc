@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Link href="/">ABC Zyto</Link>
+        <Link href="/">Zyto Balance</Link>
       </div>
 
       <div className={styles.menuToggle} onClick={toggleMenu}>
