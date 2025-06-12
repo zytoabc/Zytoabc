@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Navbar from '../components/Navbar';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
+
+  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   const images = [
     'https://example.com/images/img1.jpeg',
@@ -28,33 +31,20 @@ export default function Home() {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXX');`
+            __html: \`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXX');\`
           }}
         />
       </Head>
 
-      <div className={`${styles.page} ${darkMode ? styles.dark : styles.light}`}>
-        <div className={`${styles.navbar} ${darkMode ? styles.darkNavbar : styles.lightNavbar}`}>
-          <h2>ABC ZYTO Scanning</h2>
-          <div>
-            <a href="#about" className={styles.link}>About</a>
-            <a href="#coherence" className={styles.link}>Coherence</a>
-            <a href="#emotions" className={styles.link}>Emotions</a>
-            <a href="#gallery" className={styles.link}>Gallery</a>
-            <button className={styles.button} onClick={() => setDarkMode(!darkMode)}>
-              {darkMode ? '🌙' : '☀️'}
-            </button>
-          </div>
-        </div>
+      <div className={\`\${styles.page} \${darkMode ? styles.dark : styles.light}\`}>
+        <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
         <h1>Welcome to ZYTO Balance</h1>
         <p>Empowering personalized wellness through bio-communication technology.</p>
 
         <div id="about" className={styles.section}>
           <h2>What is ZYTO Balance?</h2>
-          <p>
-            ZYTO Balance uses GSR data to determine biological coherence with over 190 biomarkers...
-          </p>
+          <p>ZYTO Balance uses GSR data to determine biological coherence with over 190 biomarkers...</p>
           <ul>
             <li>190+ biomarker analysis</li>
             <li>Personalized supplement suggestions</li>
@@ -101,7 +91,7 @@ export default function Home() {
                 key={index}
                 src={img}
                 loading="lazy"
-                alt={`Gallery Image ${index + 1}`}
+                alt={\`Gallery Image \${index + 1}\`}
                 className={styles.galleryImage}
               />
             ))}
@@ -119,9 +109,7 @@ export default function Home() {
 
         <div className={`${styles.section} ${styles.disclaimer}`}>
           <h3>Disclaimer</h3>
-          <p>
-            This content is for educational purposes only and is not intended to diagnose, treat, cure, or prevent any disease...
-          </p>
+          <p>This content is for educational purposes only and is not intended to diagnose, treat, cure, or prevent any disease...</p>
         </div>
       </div>
     </>
