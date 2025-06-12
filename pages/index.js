@@ -195,7 +195,7 @@ export default function Home() {
       <div style={{ ...styles.section, fontSize: '0.9em', color: darkMode ? '#B0BEC5' : '#455A64' }}>
         <h3>⚠️ Disclaimer</h3>
         <p>
-          The ZYTO Balance software and content provided are intended for informational purposes only and are not substitutes for medical advice, diagnosis, or treatment. Always consult a qualified health provider before making decisions regarding wellness. Individual results may vary.
+          The ZYTO Scan software and content provided are intended for informational purposes only and are not substitutes for medical advice, diagnosis, or treatment. Always consult a qualified health provider before making decisions regarding wellness. Individual results may vary.
         </p>
       </div>
     </div>
