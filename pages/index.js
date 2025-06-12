@@ -19,10 +19,9 @@ export default function Home() {
   const styles = {
     page: {
       fontFamily: 'sans-serif',
+      padding: 40,
       paddingTop: 80,
       paddingBottom: 60,
-      paddingLeft: 40,
-      paddingRight: 40,
       minHeight: '100vh',
       color: darkMode ? '#E3F2FD' : '#0D47A1',
       background: darkMode
@@ -54,19 +53,17 @@ export default function Home() {
       color: '#fff',
       border: 'none',
       fontWeight: 'bold',
-      cursor: 'pointer',
-      transition: 'transform 0.2s ease'
+      cursor: 'pointer'
     },
     section: {
       marginTop: 40,
-      lineHeight: 1.7,
-      maxWidth: 900
+      maxWidth: 900,
+      lineHeight: 1.7
     },
     img: {
       width: '100%',
       borderRadius: 12,
       boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)',
-      transform: 'scale(1)',
       transition: 'transform 0.3s ease'
     },
     facebookButton: {
@@ -77,43 +74,59 @@ export default function Home() {
       color: 'white',
       borderRadius: 10,
       textDecoration: 'none',
-      fontWeight: 'bold',
-      boxShadow: '0 6px 16px rgba(0, 0, 0, 0.4)'
+      fontWeight: 'bold'
     }
   };
 
   return (
     <div style={styles.page}>
-      {/* Navbar */}
       <div style={styles.navbar}>
-        <h2>abc-zyto-scanning</h2>
+        <h2>ZYTO BALANCE</h2>
         <button style={styles.button} onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
         </button>
       </div>
 
-      {/* Welcome Section */}
-      <h1 style={{ marginTop: 0 }}>🌈 Welcome to ABC ZYTO Scanning</h1>
+      <h1>Welcome to ZYTO Balance</h1>
       <p>Empowering personalized wellness through bio-communication technology.</p>
 
-      {/* About ZYTO Balance */}
       <div style={styles.section}>
-        <h2>🔍 What is ZYTO Balance?</h2>
+        <h2>What is ZYTO Balance?</h2>
         <p>
-          ZYTO Balance uses galvanic skin response (GSR) technology to measure your body's biological coherence with over 190 biomarkers. Through virtual testing and biosurveys, the software identifies nutritional supplements, essential oils, and wellness services that support your unique physiology.
+          ZYTO Balance uses GSR data to determine biological coherence with over 190 biomarkers. It identifies nutritional supplements, essential oils, and wellness services that align with individual needs. It supports food choices and automates future wellness appointments.
         </p>
         <ul>
-          <li>✅ Personalized supplement & essential oil suggestions</li>
-          <li>✅ 190+ biomarker analysis for customized wellness</li>
-          <li>✅ Emotional health tools via voice-mapped neurofeedback</li>
-          <li>✅ Food biosurveys for better dietary decisions</li>
-          <li>✅ Future appointment generation for your practice</li>
+          <li>190+ biomarker analysis</li>
+          <li>Personalized supplement suggestions</li>
+          <li>Emotional wellness via neurofeedback</li>
+          <li>Food biosurveys</li>
+          <li>Appointment generation</li>
         </ul>
       </div>
 
-      {/* Image Gallery */}
       <div style={styles.section}>
-        <h2>🖼️ ZYTO Scanning Image Gallery</h2>
+        <h2>How ZYTO Measures Coherence</h2>
+        <p>
+          The ZYTO Hand Cradle gathers GSR data, analyzed by the software to determine coherence. This coherence—how systems harmonize—helps wellness professionals make better-informed decisions.
+        </p>
+      </div>
+
+      <div style={styles.section}>
+        <h2>Why Biological Coherence Matters</h2>
+        <p>
+          Just as simulators help pilots anticipate reactions, ZYTO software uses virtual items (organs, chemicals, supplements, etc.) to simulate how a body may respond, offering crucial insight.
+        </p>
+      </div>
+
+      <div style={styles.section}>
+        <h2>Improve Emotional Wellness</h2>
+        <p>
+          ZYTO's perception reframing analyzes voice frequencies to identify emotional blocks and restore balance via neurofeedback. It enhances overall well-being by addressing the subconscious.
+        </p>
+      </div>
+
+      <div style={styles.section}>
+        <h2>Image Gallery</h2>
         <div
           style={{
             display: 'grid',
@@ -135,31 +148,21 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Emotional Wellness */}
-      <div style={styles.section}>
-        <h2>🧠 Emotional Wellness Support</h2>
-        <p>
-          The ZYTO Perception Reframing feature analyzes subtle frequencies in your voice to uncover subconscious emotional blocks. Then, using a proprietary neurofeedback process, the software helps balance and reframe perceptions—contributing to greater emotional well-being.
-        </p>
-      </div>
-
-      {/* Facebook Button */}
       <a
         href="https://www.facebook.com/joreen.torno.3"
         target="_blank"
         rel="noopener noreferrer"
         style={styles.facebookButton}
       >
-        🔗 Visit My Facebook
+        Visit My Facebook
       </a>
 
-      {/* Disclaimer */}
       <div style={{ ...styles.section, fontSize: '0.9em', color: darkMode ? '#B0BEC5' : '#455A64' }}>
-        <h3>⚠️ Disclaimer</h3>
+        <h3>Disclaimer</h3>
         <p>
-          This website and the ZYTO Balance technology are intended for informational and educational purposes only. They are not intended to diagnose, treat, cure, or prevent any medical condition. Always consult with a licensed healthcare provider before making any wellness decisions. Results may vary between individuals.
+          This content is for educational purposes only and is not intended to diagnose, treat, cure, or prevent any disease. Consult a licensed health provider before making wellness decisions. Results may vary.
         </p>
       </div>
     </div>
   );
-    }
+}
