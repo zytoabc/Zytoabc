@@ -81,21 +81,21 @@ export default function Home() {
     <div style={styles.page}>
       {/* Navbar */}
       <div style={styles.navbar}>
-        <h2>Zyto Scan</h2>
+        <h2>Zyto Balance</h2>
         <button style={styles.button} onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
         </button>
       </div>
 
       {/* Welcome Section */}
-      <h1>🌈 Welcome to ZYTO Scanning</h1>
+      <h1>🌈 Welcome to ZYTO Balance Scanning</h1>
       <p>Empowering personalized wellness through bio-communication technology.</p>
 
-      {/* What is ZYTO Scan */}
+      {/* What is ZYTO Balance */}
       <div style={styles.section}>
-        <h2>🔍 What is ZYTO?</h2>
+        <h2>🔍 What is ZYTO Balance?</h2>
         <p>
-          The ZYTO software combines top product preferences with key body and lifestyle data from 190+ biomarkers to help you make informed wellness decisions.
+          The ZYTO Balance software combines top product preferences with key body and lifestyle data from 190+ biomarkers to help you make informed wellness decisions.
         </p>
         <ul>
           <li>✅ Personalized supplement & essential oil suggestions</li>
@@ -149,9 +149,10 @@ export default function Home() {
             />
           ))}
         </div>
-{/* Video Section */}
+
+          {/* Video Section */}
 <div style={styles.section}>
-  <h2>🎥 ZYTO Scan Overview Video</h2>
+  <h2>🎥 ZYTO Balance Overview Video</h2>
   <div style={{
     position: 'relative',
     paddingBottom: '56.25%',
@@ -163,7 +164,7 @@ export default function Home() {
   }}>
     <iframe
       src="https://www.youtube.com/embed/dFNnGsnMZxc"
-      title="ZYTO Scan Overview"
+      title="ZYTO Balance Overview"
       style={{
         position: 'absolute',
         top: 0,
@@ -178,7 +179,7 @@ export default function Home() {
     ></iframe>
   </div>
 </div>
-          
+        
       </div>
 
       {/* Facebook Button */}
@@ -195,9 +196,9 @@ export default function Home() {
       <div style={{ ...styles.section, fontSize: '0.9em', color: darkMode ? '#B0BEC5' : '#455A64' }}>
         <h3>⚠️ Disclaimer</h3>
         <p>
-          The ZYTO Scan software and content provided are intended for informational purposes only and are not substitutes for medical advice, diagnosis, or treatment. Always consult a qualified health provider before making decisions regarding wellness. Individual results may vary.
+          The ZYTO Balance software and content provided are intended for informational purposes only and are not substitutes for medical advice, diagnosis, or treatment. Always consult a qualified health provider before making decisions regarding wellness. Individual results may vary.
         </p>
       </div>
     </div>
   );
-    }
+      }
