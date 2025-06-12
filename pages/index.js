@@ -88,7 +88,7 @@ export default function Home() {
       </div>
 
       {/* Welcome Section */}
-      <h1>🌈 Welcome to ABC ZYTO Scanning</h1>
+      <h1>🌈 Welcome to ZYTO Balance Scanning</h1>
       <p>Empowering personalized wellness through bio-communication technology.</p>
 
       {/* What is ZYTO Balance */}
@@ -149,6 +149,36 @@ export default function Home() {
             />
           ))}
         </div>
+{/* Video Section */}
+<div style={styles.section}>
+  <h2>🎥 ZYTO Balance Overview Video</h2>
+  <div style={{
+    position: 'relative',
+    paddingBottom: '56.25%',
+    paddingTop: 25,
+    height: 0,
+    overflow: 'hidden',
+    borderRadius: 12,
+    boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)'
+  }}>
+    <iframe
+      src="https://www.youtube.com/embed/dFNnGsnMZxc"
+      title="ZYTO Balance Overview"
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        border: '0',
+        borderRadius: '12px'
+      }}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
+          
       </div>
 
       {/* Facebook Button */}
