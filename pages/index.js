@@ -105,6 +105,34 @@ export default function Home() {
           <li>✅ Generate future appointments for clients</li>
         </ul>
       </div>
+<div style={styles.section}>
+<h2>🎥 ZYTO Balance Overview Video</h2>
+  <div style={{
+    position: 'relative',
+    paddingBottom: '56.25%',
+    paddingTop: 25,
+    height: 0,
+    overflow: 'hidden',
+    borderRadius: 12,
+    boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)'
+  }}>
+    <iframe
+      src="https://www.youtube.com/embed/dFNnGsnMZxc"
+      title="ZYTO Balance Overview"
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        border: '0',
+        borderRadius: '12px'
+      }}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
 
       {/* How ZYTO Works */}
       <div style={styles.section}>
@@ -153,36 +181,8 @@ export default function Home() {
 
           {/* Video Section */}
 <div style={styles.section}>
-  <h2>🎥 ZYTO Balance Overview Video</h2>
-  <div style={{
-    position: 'relative',
-    paddingBottom: '56.25%',
-    paddingTop: 25,
-    height: 0,
-    overflow: 'hidden',
-    borderRadius: 12,
-    boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)'
-  }}>
-    <iframe
-      src="https://www.youtube.com/embed/dFNnGsnMZxc"
-      title="ZYTO Balance Overview"
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        border: '0',
-        borderRadius: '12px'
-      }}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-        <VideoGallery />
+  <VideoGallery /> 
 </div>
-        
-      </div>
 
       {/* Facebook Button */}
       <a
