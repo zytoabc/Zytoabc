@@ -1,10 +1,8 @@
-import React from 'react';
-
 type Props = {
   title: string;
   username: string;
   videoId: string;
-  thumbnail?: string; // optional
+  thumbnail?: string;
 };
 
 export default function TikTokCard({ title, username, videoId, thumbnail }: Props) {
@@ -19,8 +17,8 @@ export default function TikTokCard({ title, username, videoId, thumbnail }: Prop
         display: 'block',
         position: 'relative',
         width: '100%',
-        paddingTop: '177%',
-        backgroundColor: '#111',
+        paddingTop: '177%', // 9:16 aspect ratio
+        backgroundColor: '#000', // fallback
         borderRadius: 12,
         overflow: 'hidden',
         textDecoration: 'none',
@@ -34,16 +32,15 @@ export default function TikTokCard({ title, username, videoId, thumbnail }: Prop
           alt={title}
           style={{
             position: 'absolute',
-            width: '100%',
-            height: '100%',
             top: 0,
             left: 0,
+            width: '100%',
+            height: '100%',
             objectFit: 'cover'
           }}
         />
       )}
 
-      {/* Play Icon */}
       <div
         style={{
           position: 'absolute',
@@ -59,7 +56,6 @@ export default function TikTokCard({ title, username, videoId, thumbnail }: Prop
         ▶
       </div>
 
-      {/* Title */}
       <div
         style={{
           position: 'absolute',
