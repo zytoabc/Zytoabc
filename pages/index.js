@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import VideoGallery from '../components/VideoGallery';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -178,6 +179,7 @@ export default function Home() {
       allowFullScreen
     ></iframe>
   </div>
+        <VideoGallery />
 </div>
         
       </div>
