@@ -128,11 +128,12 @@ export default function VideoGallery() {
               ></iframe>
             ) : (
               <iframe
-                src={`https://www.tiktok.com/embed/${activeVideo.id}`}
-                title={activeVideo.title}
-                style={{ width: '100%', height: '100%', border: 0 }}
-                allow="autoplay; clipboard-write; encrypted-media"
-              ></iframe>
+  src="https://www.tiktok.com/embed/7236051435094787370"
+  width="325"
+  height="600"
+  allow="autoplay; encrypted-media"
+  allowFullScreen
+></iframe>
             )}
           </div>
         </div>
