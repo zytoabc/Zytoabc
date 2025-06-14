@@ -6,27 +6,24 @@ type Props = {
 };
 
 export default function TikTokCard({ title, username, videoId, thumbnail }: Props) {
-  const tiktokUrl = `https://www.tiktok.com/@${username}/video/${videoId}`;
+  const link = `https://www.tiktok.com/@${username}/video/${videoId}`;
 
   return (
     <a
-      href={tiktokUrl}
+      href={link}
       target="_blank"
       rel="noopener noreferrer"
       style={{
         display: 'block',
         position: 'relative',
         width: '100%',
-        paddingTop: '177%', // 9:16 aspect ratio
-        backgroundColor: '#000', // fallback
+        paddingTop: '177%', // 9:16
+        backgroundColor: '#000',
         borderRadius: 12,
-        overflow: 'hidden',
-        textDecoration: 'none',
-        color: 'white',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+        overflow: 'hidden'
       }}
     >
-      {thumbnail && (
+      {thumbnail ? (
         <img
           src={thumbnail}
           alt={title}
@@ -39,36 +36,21 @@ export default function TikTokCard({ title, username, videoId, thumbnail }: Prop
             objectFit: 'cover'
           }}
         />
+      ) : (
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: '#fff',
+            fontSize: 18,
+            fontWeight: 'bold'
+          }}
+        >
+          ▶ Watch TikTok
+        </div>
       )}
-
-      <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: 48,
-          background: 'rgba(255,255,255,0.2)',
-          padding: 12,
-          borderRadius: '50%'
-        }}
-      >
-        ▶
-      </div>
-
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 10,
-          left: 10,
-          right: 10,
-          fontSize: 14,
-          color: '#fff',
-          textShadow: '0 1px 2px rgba(0,0,0,0.6)'
-        }}
-      >
-        {title}
-      </div>
     </a>
   );
 }
