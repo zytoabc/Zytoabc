@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 type Video = {
   id: string;
@@ -13,8 +13,21 @@ export default function VideoGallery() {
     { id: '7AReRD0HFVk', title: 'ZYTO Short 1', type: 'youtube' },
     { id: 'q50v-g9EOjA', title: 'ZYTO Short 2', type: 'youtube' },
     { id: '4NGb0uP3I50', title: 'ZYTO Short 3', type: 'youtube' },
-    { id: '7373153656833209602', title: 'TikTok Demo', type: 'tiktok' }
+    { id: '7503899921330736402', title: 'TikTok Demo', type: 'tiktok' }
   ];
+
+  // Load TikTok embed script when a TikTok video is opened
+  useEffect(() => {
+    if (activeVideo?.type === 'tiktok') {
+      const script = document.createElement('script');
+      script.src = 'https://www.tiktok.com/embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [activeVideo]);
 
   return (
     <div style={{ marginTop: 40 }}>
@@ -72,6 +85,7 @@ export default function VideoGallery() {
         ))}
       </div>
 
+      {/* Modal */}
       {activeVideo && (
         <div
           onClick={() => setActiveVideo(null)}
@@ -96,7 +110,8 @@ export default function VideoGallery() {
               aspectRatio: '9 / 16',
               backgroundColor: '#000',
               borderRadius: 12,
-              overflow: 'hidden'
+              overflow: 'hidden',
+              padding: 8
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -125,26 +140,24 @@ export default function VideoGallery() {
                 style={{ width: '100%', height: '100%', border: 0 }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-              ></iframe>
+              />
             ) : (
-              <iframe
-  src="https://www.tiktok.com/embed/7236051435094787370"
-  width="325"
-  height="600"
-  allow="autoplay; encrypted-media"
-  allowFullScreen
-></iframe>
+              <blockquote
+                className="tiktok-embed"
+                cite={`https://www.tiktok.com/@natura_lista9/video/${activeVideo.id}`}
+                data-video-id={activeVideo.id}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  margin: 0
+                }}
+              >
+                <section>Loading TikTok...</section>
+              </blockquote>
             )}
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.95); }
-          to { opacity: 1; transform: scale(1); }
-        }
-      `}</style>
     </div>
   );
 }
