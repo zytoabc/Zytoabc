@@ -1,27 +1,41 @@
 import React, { useState } from 'react';
-import TikTokCard from './TikTokCard'; // Make sure TikTokCard supports `thumbnail`
 
 type Video = {
   id: string;
   title: string;
   type: 'youtube' | 'tiktok';
   username?: string;
-  thumbnail?: string;
+  thumbnail: string; // required for both types
 };
 
 export default function VideoGallery() {
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
 
   const videos: Video[] = [
-    { id: '7AReRD0HFVk', title: 'ZYTO Short 1', type: 'youtube' },
-    { id: 'q50v-g9EOjA', title: 'ZYTO Short 2', type: 'youtube' },
-    { id: '4NGb0uP3I50', title: 'ZYTO Short 3', type: 'youtube' },
+    {
+      id: '7AReRD0HFVk',
+      title: 'ZYTO Short 1',
+      type: 'youtube',
+      thumbnail: 'https://img.youtube.com/vi/7AReRD0HFVk/hqdefault.jpg'
+    },
+    {
+      id: 'q50v-g9EOjA',
+      title: 'ZYTO Short 2',
+      type: 'youtube',
+      thumbnail: 'https://img.youtube.com/vi/q50v-g9EOjA/hqdefault.jpg'
+    },
+    {
+      id: '4NGb0uP3I50',
+      title: 'ZYTO Short 3',
+      type: 'youtube',
+      thumbnail: 'https://img.youtube.com/vi/4NGb0uP3I50/hqdefault.jpg'
+    },
     {
       id: '7503899921330736402',
-      title: 'TikTok',
+      title: 'TikTok Demo',
       type: 'tiktok',
       username: 'natura_lista9',
-      thumbnail: '/images/tiktok-thumb.jpg' // ✅ Add your local or external image
+      thumbnail: '/images/tiktok-thumb.jpg' // Your custom TikTok thumbnail image
     }
   ];
 
@@ -40,43 +54,25 @@ export default function VideoGallery() {
         {videos.map((video) => (
           <div
             key={video.id}
+            onClick={() => setActiveVideo(video)}
             style={{
               cursor: 'pointer',
               borderRadius: 12,
               overflow: 'hidden',
               boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
             }}
-            onClick={() => {
-              if (video.type === 'youtube') {
-                setActiveVideo(video);
-              } else {
-                window.open(
-                  `https://www.tiktok.com/@${video.username}/video/${video.id}`,
-                  '_blank'
-                );
-              }
-            }}
           >
-            {video.type === 'youtube' ? (
-              <img
-                src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                alt={video.title}
-                style={{ width: '100%', display: 'block' }}
-              />
-            ) : (
-              <TikTokCard
-                title={video.title}
-                username={video.username!}
-                videoId={video.id}
-                thumbnail={video.thumbnail}
-              />
-            )}
+            <img
+              src={video.thumbnail}
+              alt={video.title}
+              style={{ width: '100%', display: 'block' }}
+            />
           </div>
         ))}
       </div>
 
-      {/* Modal for YouTube only */}
-      {activeVideo?.type === 'youtube' && (
+      {/* Modal for any video */}
+      {activeVideo && (
         <div
           onClick={() => setActiveVideo(null)}
           style={{
@@ -93,6 +89,7 @@ export default function VideoGallery() {
           }}
         >
           <div
+            onClick={(e) => e.stopPropagation()}
             style={{
               position: 'relative',
               width: '90%',
@@ -100,10 +97,8 @@ export default function VideoGallery() {
               aspectRatio: '9 / 16',
               backgroundColor: '#000',
               borderRadius: 12,
-              overflow: 'hidden',
-              padding: 8
+              overflow: 'hidden'
             }}
-            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setActiveVideo(null)}
@@ -123,13 +118,22 @@ export default function VideoGallery() {
               ×
             </button>
 
-            <iframe
-              src={`https://www.youtube.com/embed/${activeVideo.id}?autoplay=1`}
-              title={activeVideo.title}
-              style={{ width: '100%', height: '100%', border: 0 }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            {activeVideo.type === 'youtube' ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${activeVideo.id}?autoplay=1`}
+                title={activeVideo.title}
+                style={{ width: '100%', height: '100%', border: 0 }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <iframe
+                src={`https://www.tiktok.com/embed/${activeVideo.id}`}
+                title={activeVideo.title}
+                style={{ width: '100%', height: '100%', border: 0 }}
+                allow="autoplay; encrypted-media"
+              />
+            )}
           </div>
         </div>
       )}
