@@ -18,10 +18,10 @@ export default function VideoGallery() {
     { id: '4NGb0uP3I50', title: 'ZYTO Short 3', type: 'youtube' },
     {
       id: '7503899921330736402',
-      title: 'TikTok Demo',
+      title: 'TikTok',
       type: 'tiktok',
       username: 'natura_lista9',
-      thumbnail: '/tiktok-thumb.jpg' // ✅ Add your local or external image
+      thumbnail: '/images/tiktok-thumb.jpg' // ✅ Add your local or external image
     }
   ];
 
