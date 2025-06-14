@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function VideoGallery() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
   const videos = [
     { id: '7AReRD0HFVk', title: 'ZYTO Short 1' },
     { id: 'q50v-g9EOjA', title: 'ZYTO Short 2' },
@@ -10,44 +12,79 @@ export default function VideoGallery() {
   return (
     <div style={{ marginTop: 40 }}>
       <h2>📹 ZYTO Video Gallery</h2>
+
+      {/* Video thumbnails */}
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
           gap: 20,
           marginTop: 20
         }}
       >
-        {videos.map((video, index) => (
+        {videos.map((video) => (
           <div
-            key={index}
+            key={video.id}
+            style={{
+              cursor: 'pointer',
+              borderRadius: 12,
+              overflow: 'hidden',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+            }}
+            onClick={() => setActiveVideo(video.id)}
+          >
+            <img
+              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+              alt={video.title}
+              style={{ width: '100%', display: 'block' }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Modal viewer */}
+      {activeVideo && (
+        <div
+          onClick={() => setActiveVideo(null)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999
+          }}
+        >
+          <div
             style={{
               position: 'relative',
-              paddingBottom: '177.78%',
-              height: 0,
-              overflow: 'hidden',
+              width: '90%',
+              maxWidth: 500,
+              aspectRatio: '9 / 16',
+              backgroundColor: '#000',
               borderRadius: 12,
-              boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)'
+              overflow: 'hidden'
             }}
+            onClick={(e) => e.stopPropagation()}
           >
             <iframe
-              src={`https://www.youtube.com/embed/${video.id}`}
-              title={video.title}
+              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`}
+              title="YouTube video"
               style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
                 width: '100%',
                 height: '100%',
-                border: '0',
-                borderRadius: '12px'
+                border: 0
               }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
