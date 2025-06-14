@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import VideoGallery from '../components/VideoGallery';
 import OverviewVideo from '../components/OverviewVideo';
 import ImageGallery from '../components/ImageGallery';
-import FacebookButton from '../components/FacebookButton';
+import SocialButton from '../components/SocialButton';
 import Disclaimer from '../components/Disclaimer';
 import WelcomeSection from '../components/WelcomeSection';
 import WhatIsZyto from '../components/WhatIsZyto';
@@ -49,6 +49,13 @@ export default function Home() {
       border: 'none',
       fontWeight: 'bold',
       cursor: 'pointer'
+    },
+    socialContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '20px',
+      marginTop: 40
     }
   };
 
@@ -62,7 +69,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Sections */}
+      {/* Main Sections */}
       <WelcomeSection />
       <WhatIsZyto />
       <OverviewVideo />
@@ -70,7 +77,22 @@ export default function Home() {
       <EmotionalWellness />
       <ImageGallery darkMode={darkMode} />
       <VideoGallery />
-      <FacebookButton />
+
+      {/* Social Buttons */}
+      <div style={styles.socialContainer}>
+        <SocialButton
+          href="https://www.facebook.com/joreen.torno.3"
+          label="Visit My Facebook"
+          emoji="🔗"
+        />
+        <SocialButton
+          href="https://www.tiktok.com/@natura_lista9"
+          label="Visit My TikTok"
+          emoji="🎵"
+        />
+      </div>
+
+      {/* Disclaimer */}
       <Disclaimer darkMode={darkMode} />
     </div>
   );
