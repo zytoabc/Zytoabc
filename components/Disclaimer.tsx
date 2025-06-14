@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function Disclaimer({ darkMode }) {
+interface DisclaimerProps {
+  darkMode: boolean;
+}
+
+export default function Disclaimer({ darkMode }: DisclaimerProps) {
   return (
     <div
       style={{
