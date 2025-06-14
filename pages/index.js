@@ -183,7 +183,7 @@ export default function Home() {
 <div style={styles.section}>
   <VideoGallery /> 
 </div>
-
+</div>
       {/* Facebook Button */}
       <a
         href="https://www.facebook.com/joreen.torno.3"
