@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import TikTokCard from './TikTokCard'; // Adjust the path as needed
+import TikTokCard from './TikTokCard'; // Make sure TikTokCard supports `thumbnail`
 
 type Video = {
   id: string;
   title: string;
   type: 'youtube' | 'tiktok';
   username?: string;
+  thumbnail?: string;
 };
 
 export default function VideoGallery() {
@@ -19,7 +20,8 @@ export default function VideoGallery() {
       id: '7503899921330736402',
       title: 'TikTok Demo',
       type: 'tiktok',
-      username: 'natura_lista9'
+      username: 'natura_lista9',
+      thumbnail: '/tiktok-thumb.jpg' // ✅ Add your local or external image
     }
   ];
 
@@ -48,7 +50,6 @@ export default function VideoGallery() {
               if (video.type === 'youtube') {
                 setActiveVideo(video);
               } else {
-                // Open TikTok externally
                 window.open(
                   `https://www.tiktok.com/@${video.username}/video/${video.id}`,
                   '_blank'
@@ -67,6 +68,7 @@ export default function VideoGallery() {
                 title={video.title}
                 username={video.username!}
                 videoId={video.id}
+                thumbnail={video.thumbnail}
               />
             )}
           </div>
