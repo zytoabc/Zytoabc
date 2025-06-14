@@ -1,24 +1,32 @@
+// components/SocialButton.tsx
 import React from 'react';
 
-export default function FacebookButton() {
+interface SocialButtonProps {
+  href: string;
+  label: string;
+  emoji: string;
+}
+
+export default function SocialButton({ href, label, emoji }: SocialButtonProps) {
   return (
     <a
-      href="https://www.facebook.com/joreen.torno.3"
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       style={{
         display: 'inline-block',
-        marginTop: 40,
+        marginTop: 20,
         padding: '14px 28px',
         background: 'linear-gradient(to right, #00c6ff, #0072ff)',
         color: 'white',
         borderRadius: 10,
         textDecoration: 'none',
         fontWeight: 'bold',
-        boxShadow: '0 6px 16px rgba(0, 0, 0, 0.4)'
+        boxShadow: '0 6px 16px rgba(0, 0, 0, 0.4)',
+        marginRight: 12,
       }}
     >
-      🔗 Visit My Facebook
+      {emoji} {label}
     </a>
   );
 }
