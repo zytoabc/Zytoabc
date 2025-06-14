@@ -13,7 +13,7 @@ export default function VideoGallery() {
     <div style={{ marginTop: 40 }}>
       <h2>📹 ZYTO Video Gallery</h2>
 
-      {/* Video thumbnails */}
+      {/* Thumbnail Grid */}
       <div
         style={{
           display: 'grid',
@@ -42,7 +42,7 @@ export default function VideoGallery() {
         ))}
       </div>
 
-      {/* Modal viewer */}
+      {/* Modal */}
       {activeVideo && (
         <div
           onClick={() => setActiveVideo(null)}
@@ -56,7 +56,8 @@ export default function VideoGallery() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            zIndex: 9999
+            zIndex: 9999,
+            animation: 'fadeIn 0.3s ease'
           }}
         >
           <div
@@ -67,10 +68,31 @@ export default function VideoGallery() {
               aspectRatio: '9 / 16',
               backgroundColor: '#000',
               borderRadius: 12,
-              overflow: 'hidden'
+              overflow: 'hidden',
+              animation: 'fadeIn 0.3s ease'
             }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close button */}
+            <button
+              onClick={() => setActiveVideo(null)}
+              style={{
+                position: 'absolute',
+                top: 10,
+                right: 10,
+                background: 'rgba(255,255,255,0.1)',
+                color: '#fff',
+                border: 'none',
+                fontSize: 24,
+                cursor: 'pointer',
+                zIndex: 10000
+              }}
+              aria-label="Close"
+            >
+              ×
+            </button>
+
+            {/* Video iframe */}
             <iframe
               src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`}
               title="YouTube video"
@@ -85,6 +107,14 @@ export default function VideoGallery() {
           </div>
         </div>
       )}
+
+      {/* Animation Keyframes */}
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
     </div>
   );
 }
