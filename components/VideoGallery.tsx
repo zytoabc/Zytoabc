@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 
-export default function VideoGallery() {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+type Video = {
+  id: string;
+  title: string;
+  type: 'youtube' | 'tiktok';
+};
 
-  const videos = [
-    { id: '7AReRD0HFVk', title: 'ZYTO Short 1' },
-    { id: 'q50v-g9EOjA', title: 'ZYTO Short 2' },
-    { id: '4NGb0uP3I50', title: 'ZYTO Short 3' }
+export default function VideoGallery() {
+  const [activeVideo, setActiveVideo] = useState<Video | null>(null);
+
+  const videos: Video[] = [
+    { id: '7AReRD0HFVk', title: 'ZYTO Short 1', type: 'youtube' },
+    { id: 'q50v-g9EOjA', title: 'ZYTO Short 2', type: 'youtube' },
+    { id: '4NGb0uP3I50', title: 'ZYTO Short 3', type: 'youtube' },
+    { id: '7373153656833209602', title: 'TikTok Demo', type: 'tiktok' }
   ];
 
   return (
     <div style={{ marginTop: 40 }}>
       <h2>📹 ZYTO Video Gallery</h2>
 
-      {/* Thumbnail Grid */}
       <div
         style={{
           display: 'grid',
@@ -31,18 +37,41 @@ export default function VideoGallery() {
               overflow: 'hidden',
               boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
             }}
-            onClick={() => setActiveVideo(video.id)}
+            onClick={() => setActiveVideo(video)}
           >
-            <img
-              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-              alt={video.title}
-              style={{ width: '100%', display: 'block' }}
-            />
+            {video.type === 'youtube' ? (
+              <img
+                src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                alt={video.title}
+                style={{ width: '100%', display: 'block' }}
+              />
+            ) : (
+              <div
+                style={{
+                  width: '100%',
+                  paddingTop: '177%',
+                  background: '#000',
+                  position: 'relative'
+                }}
+              >
+                <span
+                  style={{
+                    color: '#fff',
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  ▶ TikTok
+                </span>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      {/* Modal */}
       {activeVideo && (
         <div
           onClick={() => setActiveVideo(null)}
@@ -56,8 +85,7 @@ export default function VideoGallery() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            zIndex: 9999,
-            animation: 'fadeIn 0.3s ease'
+            zIndex: 9999
           }}
         >
           <div
@@ -68,12 +96,10 @@ export default function VideoGallery() {
               aspectRatio: '9 / 16',
               backgroundColor: '#000',
               borderRadius: 12,
-              overflow: 'hidden',
-              animation: 'fadeIn 0.3s ease'
+              overflow: 'hidden'
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
               onClick={() => setActiveVideo(null)}
               style={{
@@ -92,23 +118,26 @@ export default function VideoGallery() {
               ×
             </button>
 
-            {/* Video iframe */}
-            <iframe
-              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`}
-              title="YouTube video"
-              style={{
-                width: '100%',
-                height: '100%',
-                border: 0
-              }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            {activeVideo.type === 'youtube' ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${activeVideo.id}?autoplay=1`}
+                title={activeVideo.title}
+                style={{ width: '100%', height: '100%', border: 0 }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <iframe
+                src={`https://www.tiktok.com/embed/${activeVideo.id}`}
+                title={activeVideo.title}
+                style={{ width: '100%', height: '100%', border: 0 }}
+                allow="autoplay; clipboard-write; encrypted-media"
+              ></iframe>
+            )}
           </div>
         </div>
       )}
 
-      {/* Animation Keyframes */}
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: scale(0.95); }
