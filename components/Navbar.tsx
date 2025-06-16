@@ -24,7 +24,7 @@ export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
         zIndex: 1000
       }}
     >
-      <h2>Zyto Balance</h2>
+      <h2>Zyto ScanPH</h2>
       <button
         onClick={toggleDarkMode}
         style={{
