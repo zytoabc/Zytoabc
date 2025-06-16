@@ -9,6 +9,7 @@ import WelcomeSection from '../components/WelcomeSection';
 import WhatIsZyto from '../components/WhatIsZyto';
 import HowZytoWorks from '../components/HowZytoWorks';
 import EmotionalWellness from '../components/EmotionalWellness';
+import CredentialsAndTestimonials from '../components/CredentialsAndTestimonials';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -77,6 +78,8 @@ export default function Home() {
       <EmotionalWellness />
       <ImageGallery darkMode={darkMode} />
       <VideoGallery />
+        <CredentialsAndTestimonials darkMode={darkMode} />
+<Disclaimer darkMode={darkMode} />
 
       {/* Social Buttons */}
       <div style={styles.socialContainer}>
