@@ -7,26 +7,43 @@ interface Props {
 
 export default function CredentialsAndTestimonials({ darkMode }: Props) {
   return (
-    <div
-      className="mt-20 p-4 rounded-xl shadow-md text-center mx-auto"
-      style={{
-        maxWidth: '700px', // controls how wide the section gets
-        backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
-        backdropFilter: 'blur(8px)',
-        color: darkMode ? '#E3F2FD' : '#0D47A1'
-      }}
-    >
-      <h2 className="text-2xl font-bold mb-4">Credentials & Testimonials</h2>
-      <img
-        src="/images/credentials.jpg"
-        alt="Credentials and Testimonials"
+    <div style={{ marginTop: 40, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}>
+      <h2
         style={{
-          width: '100%',
-          height: 'auto',
-          borderRadius: '12px',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
+          color: darkMode ? '#E3F2FD' : '#0D47A1',
+          fontSize: '1.5rem',
+          fontWeight: 'bold',
+          marginBottom: 16
         }}
-      />
+      >
+        🏅 Credentials & Testimonials
+      </h2>
+
+      <div
+        style={{
+          position: 'relative',
+          paddingBottom: '56.25%',
+          paddingTop: 25,
+          height: 0,
+          overflow: 'hidden',
+          borderRadius: 12,
+          boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)'
+        }}
+      >
+        <img
+          src="/images/credentials.jpg"
+          alt="Credentials and Testimonials"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: 12
+          }}
+        />
+      </div>
     </div>
   );
 }
