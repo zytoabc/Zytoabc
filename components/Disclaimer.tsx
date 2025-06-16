@@ -24,7 +24,7 @@ export default function Disclaimer({ darkMode }: DisclaimerProps) {
     >
       <h3 style={{ marginBottom: 12 }}>⚠️ Disclaimer</h3>
       <p>
-        The ZYTO Balance software and content provided are intended for informational purposes only
+        The ZYTO software and content provided are intended for informational purposes only
         and are not substitutes for medical advice, diagnosis, or treatment. Always consult a qualified
         health provider before making decisions regarding wellness. Individual results may vary.
       </p>
