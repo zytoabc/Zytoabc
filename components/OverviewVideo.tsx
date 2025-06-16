@@ -3,7 +3,7 @@ import React from 'react';
 export default function OverviewVideo() {
   return (
     <div style={{ marginTop: 40, maxWidth: 900 }}>
-      <h2>🎥 ZYTO ScanPH Overview Video</h2>
+      <h2>🎥 ZYTO Overview Video</h2>
       <div
         style={{
           position: 'relative',
