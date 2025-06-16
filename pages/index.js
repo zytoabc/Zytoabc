@@ -79,7 +79,7 @@ export default function Home() {
       <ImageGallery darkMode={darkMode} />
       <VideoGallery />
         <CredentialsAndTestimonials darkMode={darkMode} />
-<Disclaimer darkMode={darkMode} />
+
 
       {/* Social Buttons */}
       <div style={styles.socialContainer}>
