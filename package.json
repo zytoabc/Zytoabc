@@ -1,5 +1,5 @@
 {
-  "name": "abc-zyto-scanning",
+  "name": "zyto-scanph",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
