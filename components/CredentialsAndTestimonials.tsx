@@ -21,26 +21,21 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
 
       <div
         style={{
-          position: 'relative',
-          paddingBottom: '56.25%',
-          paddingTop: 25,
-          height: 0,
           overflow: 'hidden',
           borderRadius: 12,
-          boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)'
+          boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)',
+          maxWidth: '100%',
         }}
       >
         <img
           src="/images/credentials.jpg"
           alt="Credentials and Testimonials"
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
             width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            borderRadius: 12
+            height: 'auto',
+            display: 'block',
+            objectFit: 'contain',
+            borderRadius: 12,
           }}
         />
       </div>
