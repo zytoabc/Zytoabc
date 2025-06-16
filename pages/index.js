@@ -64,7 +64,7 @@ export default function Home() {
     <div style={styles.page}>
       {/* Navbar */}
       <div style={styles.navbar}>
-        <h2>Zyto Balance</h2>
+        <h2>Zyto ScanPH</h2>
         <button style={styles.button} onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
         </button>
