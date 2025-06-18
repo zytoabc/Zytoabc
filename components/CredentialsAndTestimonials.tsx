@@ -88,17 +88,19 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
             onClick={(e) => e.stopPropagation()}
             style={{ position: 'relative', maxWidth: '90%', maxHeight: '90%' }}
           >
-            {/* Close Button */}
+            {/* Close Button (darker style) */}
             <button
               onClick={closeModal}
               style={{
                 position: 'absolute',
                 top: 10,
                 right: 10,
-                background: 'transparent',
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
                 color: '#fff',
-                fontSize: 24,
+                fontSize: 20,
                 border: 'none',
+                padding: '6px 10px',
+                borderRadius: 4,
                 cursor: 'pointer',
               }}
               aria-label="Close"
@@ -111,13 +113,15 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
               onClick={prevImage}
               style={{
                 position: 'absolute',
-                left: -50,
+                left: 10,
                 top: '50%',
                 transform: 'translateY(-50%)',
-                fontSize: 32,
+                fontSize: 36,
                 color: '#fff',
-                background: 'none',
+                background: 'rgba(0,0,0,0.4)',
                 border: 'none',
+                padding: '2px 8px',
+                borderRadius: 4,
                 cursor: 'pointer',
               }}
               aria-label="Previous"
@@ -130,13 +134,15 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
               onClick={nextImage}
               style={{
                 position: 'absolute',
-                right: -50,
+                right: 10,
                 top: '50%',
                 transform: 'translateY(-50%)',
-                fontSize: 32,
+                fontSize: 36,
                 color: '#fff',
-                background: 'none',
+                background: 'rgba(0,0,0,0.4)',
                 border: 'none',
+                padding: '2px 8px',
+                borderRadius: 4,
                 cursor: 'pointer',
               }}
               aria-label="Next"
