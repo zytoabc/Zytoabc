@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Props {
   darkMode: boolean;
@@ -12,7 +12,24 @@ const images = [
 ];
 
 export default function CredentialsAndTestimonials({ darkMode }: Props) {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const closeModal = () => setSelectedIndex(null);
+  const nextImage = () => setSelectedIndex((prev) => (prev !== null ? (prev + 1) % images.length : null));
+  const prevImage = () => setSelectedIndex((prev) => (prev !== null ? (prev - 1 + images.length) % images.length : null));
+
+  // Optional: keyboard support
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex !== null) {
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') closeModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex]);
 
   return (
     <div style={{ marginTop: 40, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}>
@@ -34,7 +51,7 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
             key={index}
             src={src}
             alt={`Thumbnail ${index + 1}`}
-            onClick={() => setSelectedImage(src)}
+            onClick={() => setSelectedIndex(index)}
             style={{
               width: 100,
               height: 100,
@@ -48,7 +65,101 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
         ))}
       </div>
 
-      {/* Main Large Image (Now at the Bottom) */}
+      {/* Lightbox Modal with Swipe + Close */}
+      {selectedIndex !== null && (
+        <div
+          onClick={closeModal}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
+            cursor: 'zoom-out',
+          }}
+        >
+          {/* Prevent click propagation to close modal when clicking buttons/images */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{ position: 'relative', maxWidth: '90%', maxHeight: '90%' }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              style={{
+                position: 'absolute',
+                top: 10,
+                right: 10,
+                background: 'transparent',
+                color: '#fff',
+                fontSize: 24,
+                border: 'none',
+                cursor: 'pointer',
+              }}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+            {/* Prev Button */}
+            <button
+              onClick={prevImage}
+              style={{
+                position: 'absolute',
+                left: -50,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                fontSize: 32,
+                color: '#fff',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+              }}
+              aria-label="Previous"
+            >
+              ‹
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={nextImage}
+              style={{
+                position: 'absolute',
+                right: -50,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                fontSize: 32,
+                color: '#fff',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+              }}
+              aria-label="Next"
+            >
+              ›
+            </button>
+
+            {/* Enlarged Image */}
+            <img
+              src={images[selectedIndex]}
+              alt="Enlarged"
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                borderRadius: 8,
+                boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)',
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Main Large Image at the Bottom */}
       <div
         style={{
           overflow: 'hidden',
@@ -70,37 +181,6 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
           }}
         />
       </div>
-
-      {/* Lightbox Modal */}
-      {selectedImage && (
-        <div
-          onClick={() => setSelectedImage(null)}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            backgroundColor: 'rgba(0, 0, 0, 0.85)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 9999,
-            cursor: 'zoom-out',
-          }}
-        >
-          <img
-            src={selectedImage}
-            alt="Enlarged"
-            style={{
-              maxWidth: '90%',
-              maxHeight: '90%',
-              borderRadius: 8,
-              boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)',
-            }}
-          />
-        </div>
-      )}
     </div>
   );
 }
