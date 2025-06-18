@@ -27,28 +27,6 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
         🏅 Credentials & Testimonials
       </h2>
 
-      {/* Main Large Image */}
-      <div
-        style={{
-          overflow: 'hidden',
-          borderRadius: 12,
-          boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)',
-          maxWidth: '100%',
-        }}
-      >
-        <img
-          src="/images/credentials.jpg"
-          alt="Credentials and Testimonials"
-          style={{
-            width: '100%',
-            height: 'auto',
-            display: 'block',
-            objectFit: 'contain',
-            borderRadius: 12,
-          }}
-        />
-      </div>
-
       {/* Thumbnails */}
       <div style={{ display: 'flex', gap: 12, marginTop: 20, flexWrap: 'wrap' }}>
         {images.map((src, index) => (
@@ -99,6 +77,27 @@ export default function CredentialsAndTestimonials({ darkMode }: Props) {
             }}
           />
         </div>
+      {/* Main Large Image */}
+      <div
+        style={{
+          overflow: 'hidden',
+          borderRadius: 12,
+          boxShadow: '0 8px 16px rgba(13, 71, 161, 0.5)',
+          maxWidth: '100%',
+        }}
+      >
+        <img
+          src="/images/credentials.jpg"
+          alt="Credentials and Testimonials"
+          style={{
+            width: '100%',
+            height: 'auto',
+            display: 'block',
+            objectFit: 'contain',
+            borderRadius: 12,
+          }}
+        />
+      </div>
       )}
     </div>
   );
