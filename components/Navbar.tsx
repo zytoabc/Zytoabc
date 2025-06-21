@@ -9,8 +9,7 @@ interface NavbarProps {
 
 const pages = [
   { name: 'Home', path: '/' },
-  { name: 'Zyto Activities', path: '/zyto-images' },
-  // Add more pages here as needed
+  { name: 'Zyto Activities', path: '/ZytoImagesPage' }, // Matches your actual file name
 ];
 
 export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
@@ -32,7 +31,7 @@ export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
           alignItems: 'center',
           padding: '0 30px',
           boxShadow: '0 4px 20px rgba(13, 71, 161, 0.4)',
-          zIndex: 1000
+          zIndex: 1000,
         }}
       >
         <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>
@@ -41,11 +40,15 @@ export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
           {pages.map((page) => (
-            <Link key={page.path} href={page.path} style={{
-              color: router.pathname === page.path ? '#42A5F5' : 'inherit',
-              textDecoration: 'none',
-              fontWeight: router.pathname === page.path ? 'bold' : 'normal'
-            }}>
+            <Link
+              key={page.path}
+              href={page.path}
+              style={{
+                color: router.pathname === page.path ? '#42A5F5' : 'inherit',
+                textDecoration: 'none',
+                fontWeight: router.pathname === page.path ? 'bold' : 'normal',
+              }}
+            >
               {page.name}
             </Link>
           ))}
@@ -61,7 +64,7 @@ export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
               color: '#fff',
               border: 'none',
               fontWeight: 'bold',
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
           >
             {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
@@ -69,8 +72,8 @@ export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
         </div>
       </div>
 
-      {/* Spacer div to prevent page content from hiding behind fixed navbar */}
-      <div style={{ height: 60 }}></div>
+      {/* Spacer to avoid content being hidden under the navbar */}
+      <div style={{ height: 60 }} />
     </>
   );
 }
