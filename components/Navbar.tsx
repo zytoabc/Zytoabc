@@ -1,32 +1,57 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import ZytoImagesPage from './ZytoImagesPage';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Home() {
-  return <h1 style={{ marginTop: 80, textAlign: 'center' }}>Welcome to Zyto ScanPH</h1>;
+interface NavbarProps {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const toggleDarkMode = () => setDarkMode(!darkMode);
-
+export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
   return (
-    <Router>
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <div style={{ paddingTop: 60, background: darkMode ? '#121212' : '#f5f5f5', minHeight: '100vh' }}>
-        <div style={{ padding: 20 }}>
-          <nav>
-            <Link to="/" style={{ marginRight: 20 }}>Home</Link>
-            <Link to="/zyto-images">Zyto Activities</Link>
-          </nav>
-
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/zyto-images" element={<ZytoImagesPage darkMode={darkMode} />} />
-          </Routes>
-        </div>
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 60,
+        backgroundColor: darkMode ? '#0b0f2c' : '#ffffff',
+        color: darkMode ? '#BBDEFB' : '#0D47A1',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '0 30px',
+        boxShadow: '0 4px 20px rgba(13, 71, 161, 0.4)',
+        zIndex: 1000
+      }}
+    >
+      {/* Left: Logo/Brand */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+        <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+          <h2 style={{ margin: 0 }}>Zyto ScanPH</h2>
+        </Link>
+        <Link to="/zyto-images" style={{ color: 'inherit', textDecoration: 'none', fontWeight: 'bold' }}>
+          Zyto Activities
+        </Link>
       </div>
-    </Router>
+
+      {/* Right: Dark Mode Toggle */}
+      <button
+        onClick={toggleDarkMode}
+        style={{
+          padding: '10px 18px',
+          borderRadius: 8,
+          background: darkMode
+            ? 'linear-gradient(45deg, #2196f3, #1e88e5)'
+            : 'linear-gradient(45deg, #64b5f6, #1976d2)',
+          color: '#fff',
+          border: 'none',
+          fontWeight: 'bold',
+          cursor: 'pointer'
+        }}
+      >
+        {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+      </button>
+    </div>
   );
 }
