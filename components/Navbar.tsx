@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface NavbarProps {
   darkMode: boolean;
@@ -22,34 +22,33 @@ export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
         alignItems: 'center',
         padding: '0 30px',
         boxShadow: '0 4px 20px rgba(13, 71, 161, 0.4)',
-        zIndex: 1000,
+        zIndex: 1000
       }}
     >
+      <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+        <h2>Zyto ScanPH</h2>
+      </Link>
       <div style={{ display: 'flex', gap: 20 }}>
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h2 style={{ margin: 0 }}>Zyto ScanPH</h2>
-        </Link>
-        <Link to="/zyto-images" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>
+        <Link href="/zyto-images" style={{ color: 'inherit', textDecoration: 'none' }}>
           Zyto Activities
         </Link>
+        <button
+          onClick={toggleDarkMode}
+          style={{
+            padding: '10px 18px',
+            borderRadius: 8,
+            background: darkMode
+              ? 'linear-gradient(45deg, #2196f3, #1e88e5)'
+              : 'linear-gradient(45deg, #64b5f6, #1976d2)',
+            color: '#fff',
+            border: 'none',
+            fontWeight: 'bold',
+            cursor: 'pointer'
+          }}
+        >
+          {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+        </button>
       </div>
-
-      <button
-        onClick={toggleDarkMode}
-        style={{
-          padding: '10px 18px',
-          borderRadius: 8,
-          background: darkMode
-            ? 'linear-gradient(45deg, #2196f3, #1e88e5)'
-            : 'linear-gradient(45deg, #64b5f6, #1976d2)',
-          color: '#fff',
-          border: 'none',
-          fontWeight: 'bold',
-          cursor: 'pointer',
-        }}
-      >
-        {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
-      </button>
     </div>
   );
 }
