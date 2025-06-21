@@ -1,46 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import ZytoImagesPage from './ZytoImagesPage';
 
-interface NavbarProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
+function Home() {
+  return <h1 style={{ marginTop: 80, textAlign: 'center' }}>Welcome to Zyto ScanPH</h1>;
 }
 
-export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
+export default function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => setDarkMode(!darkMode);
+
   return (
-    <div
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 60,
-        backgroundColor: darkMode ? '#0b0f2c' : '#ffffff',
-        color: darkMode ? '#BBDEFB' : '#0D47A1',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '0 30px',
-        boxShadow: '0 4px 20px rgba(13, 71, 161, 0.4)',
-        zIndex: 1000
-      }}
-    >
-      <h2>Zyto ScanPH</h2>
-      <button
-        onClick={toggleDarkMode}
-        style={{
-          padding: '10px 18px',
-          borderRadius: 8,
-          background: darkMode
-            ? 'linear-gradient(45deg, #2196f3, #1e88e5)'
-            : 'linear-gradient(45deg, #64b5f6, #1976d2)',
-          color: '#fff',
-          border: 'none',
-          fontWeight: 'bold',
-          cursor: 'pointer'
-        }}
-      >
-        {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
-      </button>
-    </div>
+    <Router>
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <div style={{ paddingTop: 60, background: darkMode ? '#121212' : '#f5f5f5', minHeight: '100vh' }}>
+        <div style={{ padding: 20 }}>
+          <nav>
+            <Link to="/" style={{ marginRight: 20 }}>Home</Link>
+            <Link to="/zyto-images">Zyto Activities</Link>
+          </nav>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/zyto-images" element={<ZytoImagesPage darkMode={darkMode} />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
