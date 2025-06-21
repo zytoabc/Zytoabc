@@ -22,20 +22,18 @@ export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
         alignItems: 'center',
         padding: '0 30px',
         boxShadow: '0 4px 20px rgba(13, 71, 161, 0.4)',
-        zIndex: 1000
+        zIndex: 1000,
       }}
     >
-      {/* Left: Logo/Brand */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-        <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+      <div style={{ display: 'flex', gap: 20 }}>
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <h2 style={{ margin: 0 }}>Zyto ScanPH</h2>
         </Link>
-        <Link to="/zyto-images" style={{ color: 'inherit', textDecoration: 'none', fontWeight: 'bold' }}>
+        <Link to="/zyto-images" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>
           Zyto Activities
         </Link>
       </div>
 
-      {/* Right: Dark Mode Toggle */}
       <button
         onClick={toggleDarkMode}
         style={{
@@ -47,7 +45,7 @@ export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
           color: '#fff',
           border: 'none',
           fontWeight: 'bold',
-          cursor: 'pointer'
+          cursor: 'pointer',
         }}
       >
         {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
