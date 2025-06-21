@@ -25,32 +25,6 @@ export default function Home() {
         : 'linear-gradient(to bottom right, #e3f2fd, #ffffff)',
       transition: 'all 0.3s ease'
     },
-    navbar: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      height: 60,
-      backgroundColor: darkMode ? '#0b0f2c' : '#ffffff',
-      color: darkMode ? '#BBDEFB' : '#0D47A1',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '0 30px',
-      boxShadow: '0 4px 20px rgba(13, 71, 161, 0.4)',
-      zIndex: 1000
-    },
-    button: {
-      padding: '10px 18px',
-      borderRadius: 8,
-      background: darkMode
-        ? 'linear-gradient(45deg, #2196f3, #1e88e5)'
-        : 'linear-gradient(45deg, #64b5f6, #1976d2)',
-      color: '#fff',
-      border: 'none',
-      fontWeight: 'bold',
-      cursor: 'pointer'
-    },
     socialContainer: {
       display: 'flex',
       flexDirection: 'column',
@@ -61,42 +35,38 @@ export default function Home() {
   };
 
   return (
-    <div style={styles.page}>
-      {/* Navbar */}
-      <div style={styles.navbar}>
-        <h2>Zyto ScanPH</h2>
-        <button style={styles.button} onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
-        </button>
-      </div>
+    <>
+      {/* Global Navbar */}
+      <Navbar darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
 
-      {/* Main Sections */}
-      <WelcomeSection />
-      <WhatIsZyto />
-      <OverviewVideo />
-      <HowZytoWorks />
-      <EmotionalWellness />
-      <ImageGallery darkMode={darkMode} />
-      <VideoGallery />
+      {/* Main Content */}
+      <div style={styles.page}>
+        <WelcomeSection />
+        <WhatIsZyto />
+        <OverviewVideo />
+        <HowZytoWorks />
+        <EmotionalWellness />
+        <ImageGallery darkMode={darkMode} />
+        <VideoGallery />
         <CredentialsAndTestimonials darkMode={darkMode} />
 
+        {/* Social Buttons */}
+        <div style={styles.socialContainer}>
+          <SocialButton
+            href="https://www.facebook.com/joreen.torno.3"
+            label="Visit My Facebook"
+            emoji="🔗"
+          />
+          <SocialButton
+            href="https://www.tiktok.com/@natura_lista9"
+            label="Visit My TikTok"
+            emoji="🎵"
+          />
+        </div>
 
-      {/* Social Buttons */}
-      <div style={styles.socialContainer}>
-        <SocialButton
-          href="https://www.facebook.com/joreen.torno.3"
-          label="Visit My Facebook"
-          emoji="🔗"
-        />
-        <SocialButton
-          href="https://www.tiktok.com/@natura_lista9"
-          label="Visit My TikTok"
-          emoji="🎵"
-        />
+        {/* Disclaimer */}
+        <Disclaimer darkMode={darkMode} />
       </div>
-
-      {/* Disclaimer */}
-      <Disclaimer darkMode={darkMode} />
-    </div>
+    </>
   );
 }
