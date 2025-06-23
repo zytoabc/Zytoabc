@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 type Video = {
   id: string;
   title: string;
-  type: 'youtube' | 'tiktok';
+  type: 'youtube' | 'tiktok' | 'local';
   username?: string;
-  thumbnail: string; // required for both types
+  thumbnail: string;
+  src?: string; // Only for local videos
 };
 
 export default function VideoGallery() {
@@ -35,7 +36,14 @@ export default function VideoGallery() {
       title: 'TikTok Demo',
       type: 'tiktok',
       username: 'natura_lista9',
-      thumbnail: '/images/tiktok-thumb.jpg' // Your custom TikTok thumbnail image
+      thumbnail: '/images/tiktok-thumb.jpg'
+    },
+    {
+      id: 'local-intro',
+      title: 'ZYTO Local Video',
+      type: 'local',
+      thumbnail: '/images/local-thumb.jpg', // Add this thumbnail in /public/images/
+      src: '/videos/intro.mp4' // Add this video in /public/videos/
     }
   ];
 
@@ -71,7 +79,6 @@ export default function VideoGallery() {
         ))}
       </div>
 
-      {/* Modal for any video */}
       {activeVideo && (
         <div
           onClick={() => setActiveVideo(null)}
@@ -126,13 +133,22 @@ export default function VideoGallery() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
-            ) : (
+            ) : activeVideo.type === 'tiktok' ? (
               <iframe
                 src={`https://www.tiktok.com/embed/${activeVideo.id}`}
                 title={activeVideo.title}
                 style={{ width: '100%', height: '100%', border: 0 }}
                 allow="autoplay; encrypted-media"
               />
+            ) : (
+              <video
+                controls
+                autoPlay
+                style={{ width: '100%', height: '100%' }}
+              >
+                <source src={activeVideo.src} type="video/1.mp4" />
+                Your browser does not support the video tag.
+              </video>
             )}
           </div>
         </div>
