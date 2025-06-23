@@ -37,32 +37,36 @@ export default function ZytoImagesPage() {
           transition: 'all 0.3s ease',
         }}
       >
-        <h2 style={{ textAlign: 'center', marginBottom: 30 }}>Zyto Album</h2>
+        <h2 style={{ textAlign: 'center', marginBottom: 30 }}>Zyto Activities</h2>
         <div
           style={{
-            display: 'flex',
-            justifyContent: 'center',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+            gap: '20px',
+            justifyItems: 'center',
           }}
         >
-          <img
-            src={images[0]} // Album cover
-            alt="Zyto Album Cover"
-            onClick={() => setSelectedImageIndex(0)}
-            style={{
-              width: '100%',
-              maxWidth: 300,
-              height: 200,
-              objectFit: 'cover',
-              borderRadius: 12,
-              boxShadow: '0 6px 16px rgba(0,0,0,0.3)',
-              cursor: 'pointer',
-              transition: 'transform 0.3s',
-            }}
-          />
+          {images.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt={`Zyto Activity ${index + 1}`}
+              onClick={() => setSelectedImageIndex(index)}
+              style={{
+                width: '100%',
+                maxWidth: 250,
+                height: 180,
+                objectFit: 'cover',
+                borderRadius: 10,
+                boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
+                cursor: 'pointer',
+              }}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Modal Album Viewer */}
+      {/* Modal */}
       {showModal && (
         <div
           {...swipeHandlers}
@@ -108,7 +112,7 @@ export default function ZytoImagesPage() {
 
           <img
             src={images[selectedImageIndex!]}
-            alt={`Zyto Image ${selectedImageIndex! + 1}`}
+            alt={`Selected Zyto ${selectedImageIndex! + 1}`}
             style={{
               maxWidth: '90%',
               maxHeight: '80%',
