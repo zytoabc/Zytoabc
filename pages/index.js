@@ -64,25 +64,11 @@ export default function Home() {
         <EmotionalWellness />
            <ImageGallery darkMode={darkMode} />
 
-        {/* Album Cover Preview */}
-        <div style={{ textAlign: 'center', marginTop: 60, marginBottom: 60 }}>
-          <h2 style={{ marginBottom: 20 }}>Zyto Activities Album</h2>
-          <Link href="/zyto-images">
-            <img
-              src="/images/1.jpeg"
-              alt="Zyto Album Cover"
-              style={{
-                width: '100%',
-                maxWidth: 300,
-                height: 200,
-                objectFit: 'cover',
-                borderRadius: 12,
-                boxShadow: '0 6px 16px rgba(0,0,0,0.3)',
-                cursor: 'pointer',
-              }}
-            />
+            {/* Zyto Activities Navigation Link */}
+        <div style={{ textAlign: 'center' }}>
+          <Link href="/ZytoImagesPage" style={styles.linkButton}>
+            👉 View All Zyto Activities
           </Link>
-          <p style={{ marginTop: 16, fontWeight: 'bold' }}>Click the image to view photos</p>
         </div>
 
         <VideoGallery />
