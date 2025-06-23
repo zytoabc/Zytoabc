@@ -77,7 +77,7 @@ export default function VideoGallery() {
   alt={video.title}
   style={{
     width: '100%',
-    height: '200px', // Or any fixed height you want
+    height: '100%', // Or any fixed height you want
     objectFit: 'cover', // ✅ Keeps it centered and cropped
     display: 'block'
   }}
