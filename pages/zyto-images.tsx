@@ -127,8 +127,6 @@ export default function ZytoImagesPage() {
         ⬅️ Go to First Page
       </button>
     </div>
-  )}
-</div>
 
       {/* Modal */}
       {showModal && (
