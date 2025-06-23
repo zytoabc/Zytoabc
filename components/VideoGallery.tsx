@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 
+// ✅ Video type definition
 type Video = {
   id: string;
   title: string;
   type: 'youtube' | 'tiktok' | 'local';
   username?: string;
   thumbnail: string;
-  src?: string; // Only for local videos
+  src?: string; // Only used if type is 'local'
 };
 
 export default function VideoGallery() {
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
 
+  // ✅ Your video list
   const videos: Video[] = [
     {
       id: '7AReRD0HFVk',
@@ -42,8 +44,8 @@ export default function VideoGallery() {
       id: 'local-intro',
       title: 'ZYTO Local Video',
       type: 'local',
-      thumbnail: '/images/local-thumb.jpg', // Add this thumbnail in /public/images/
-      src: '/videos/intro.mp4' // Add this video in /public/videos/
+      thumbnail: '/images/local-thumb.jpg',
+      src: '/videos/1.mp4' // ✅ Local video path
     }
   ];
 
@@ -79,6 +81,7 @@ export default function VideoGallery() {
         ))}
       </div>
 
+      {/* ✅ Video Modal */}
       {activeVideo && (
         <div
           onClick={() => setActiveVideo(null)}
@@ -125,6 +128,7 @@ export default function VideoGallery() {
               ×
             </button>
 
+            {/* ✅ Video Player Selection */}
             {activeVideo.type === 'youtube' ? (
               <iframe
                 src={`https://www.youtube.com/embed/${activeVideo.id}?autoplay=1`}
