@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import VideoGallery from '../components/VideoGallery';
 import OverviewVideo from '../components/OverviewVideo';
-import ImageGallery from '../components/ImageGallery';
 import SocialButton from '../components/SocialButton';
 import Disclaimer from '../components/Disclaimer';
 import WelcomeSection from '../components/WelcomeSection';
@@ -63,12 +62,31 @@ export default function Home() {
         <HowZytoWorks />
         <EmotionalWellness />
 
-        <ImageGallery darkMode={darkMode} />
+        {/* Album Cover Preview */}
+        <div style={{ textAlign: 'center', marginTop: 60, marginBottom: 60 }}>
+          <h2 style={{ marginBottom: 20 }}>Zyto Activities Album</h2>
+          <Link href="/ZytoImagesPage">
+            <img
+              src="/images/1.jpeg"
+              alt="Zyto Album Cover"
+              style={{
+                width: '100%',
+                maxWidth: 300,
+                height: 200,
+                objectFit: 'cover',
+                borderRadius: 12,
+                boxShadow: '0 6px 16px rgba(0,0,0,0.3)',
+                cursor: 'pointer',
+              }}
+            />
+          </Link>
+          <p style={{ marginTop: 16, fontWeight: 'bold' }}>Click the image to view 88 photos</p>
+        </div>
 
-        {/* Zyto Activities Navigation Link */}
+        {/* Zyto Album Link Button (Optional) */}
         <div style={{ textAlign: 'center' }}>
           <Link href="/ZytoImagesPage" style={styles.linkButton}>
-            👉 View All Zyto Activities
+            👉 View Full Zyto Album
           </Link>
         </div>
 
