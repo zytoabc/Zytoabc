@@ -82,7 +82,7 @@ export default function Home() {
               }}
             />
           </Link>
-          <p style={{ marginTop: 16, fontWeight: 'bold' }}>Click the image to view 88 photos</p>
+          <p style={{ marginTop: 16, fontWeight: 'bold' }}>Click the image to view photos</p>
         </div>
 
         <VideoGallery />
