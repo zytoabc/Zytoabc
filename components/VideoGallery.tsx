@@ -75,7 +75,12 @@ export default function VideoGallery() {
             <img
               src={video.thumbnail}
               alt={video.title}
-              style={{ width: '100%', display: 'block' }}
+              style={{
+  width: '100%',
+  aspectRatio: '16 / 9',
+  objectFit: 'cover',
+  display: 'block'
+}}
             />
           </div>
         ))}
