@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const pages = [
   { name: 'Home', path: '/' },
-  { name: 'Zyto Activities', path: '/ZytoImages' }, // Matches your actual file name
+  { name: 'Zyto Activities', path: '/zyto-images' }, // Matches your actual file name
 ];
 
 export default function Navbar({ darkMode, toggleDarkMode }: NavbarProps) {
