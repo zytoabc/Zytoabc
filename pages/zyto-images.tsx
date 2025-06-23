@@ -3,11 +3,17 @@ import Navbar from '../components/Navbar';
 import { useSwipeable } from 'react-swipeable';
 
 const images = Array.from({ length: 91 }, (_, i) => `/images/${i + 1}.jpeg`);
+const IMAGES_PER_PAGE = 12;
 
 export default function ZytoImagesPage() {
   const [darkMode, setDarkMode] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const showModal = selectedImageIndex !== null;
+  const totalPages = Math.ceil(images.length / IMAGES_PER_PAGE);
+  const start = (currentPage - 1) * IMAGES_PER_PAGE;
+  const currentImages = images.slice(start, start + IMAGES_PER_PAGE);
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => {
@@ -38,6 +44,7 @@ export default function ZytoImagesPage() {
         }}
       >
         <h2 style={{ textAlign: 'center', marginBottom: 30 }}>Zyto Activities</h2>
+
         <div
           style={{
             display: 'grid',
@@ -46,12 +53,12 @@ export default function ZytoImagesPage() {
             justifyItems: 'center',
           }}
         >
-          {images.map((src, index) => (
+          {currentImages.map((src, index) => (
             <img
-              key={index}
+              key={start + index}
               src={src}
-              alt={`Zyto Activity ${index + 1}`}
-              onClick={() => setSelectedImageIndex(index)}
+              alt={`Zyto Activity ${start + index + 1}`}
+              onClick={() => setSelectedImageIndex(start + index)}
               style={{
                 width: '100%',
                 maxWidth: 250,
@@ -63,6 +70,45 @@ export default function ZytoImagesPage() {
               }}
             />
           ))}
+        </div>
+
+        {/* Pagination Controls */}
+        <div style={{ marginTop: 30, textAlign: 'center' }}>
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((p) => p - 1)}
+            style={{
+              marginRight: 10,
+              padding: '8px 16px',
+              backgroundColor: darkMode ? '#1565C0' : '#90CAF9',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 6,
+              cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+              opacity: currentPage === 1 ? 0.5 : 1,
+            }}
+          >
+            Previous
+          </button>
+          <span style={{ margin: '0 12px' }}>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage((p) => p + 1)}
+            style={{
+              marginLeft: 10,
+              padding: '8px 16px',
+              backgroundColor: darkMode ? '#1565C0' : '#90CAF9',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 6,
+              cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+              opacity: currentPage === totalPages ? 0.5 : 1,
+            }}
+          >
+            Next
+          </button>
         </div>
       </div>
 
@@ -87,7 +133,6 @@ export default function ZytoImagesPage() {
             flexDirection: 'column',
           }}
         >
-          {/* Left Arrow */}
           {selectedImageIndex! > 0 && (
             <button
               onClick={(e) => {
@@ -121,7 +166,6 @@ export default function ZytoImagesPage() {
             }}
           />
 
-          {/* Right Arrow */}
           {selectedImageIndex! < images.length - 1 && (
             <button
               onClick={(e) => {
