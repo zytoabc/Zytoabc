@@ -66,7 +66,7 @@ export default function Home() {
 
             {/* Zyto Activities Navigation Link */}
         <div style={{ textAlign: 'center' }}>
-          <Link href="/ZytoImagesPage" style={styles.linkButton}>
+          <Link href="/zyto-images" style={styles.linkButton}>
             👉 View All Zyto Activities
           </Link>
         </div>
