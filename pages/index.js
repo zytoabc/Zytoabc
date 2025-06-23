@@ -85,13 +85,6 @@ export default function Home() {
           <p style={{ marginTop: 16, fontWeight: 'bold' }}>Click the image to view 88 photos</p>
         </div>
 
-        {/* Zyto Album Link Button (Optional) */}
-        <div style={{ textAlign: 'center' }}>
-          <Link href="/zyto-images" style={styles.linkButton}>
-            👉 View Full Zyto Album
-          </Link>
-        </div>
-
         <VideoGallery />
         <CredentialsAndTestimonials darkMode={darkMode} />
 
