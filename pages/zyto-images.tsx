@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useSwipeable } from 'react-swipeable';
 
-const images = Array.from({ length: 88 }, (_, i) => `/images/${i + 1}.jpeg`);
+const images = Array.from({ length: 91 }, (_, i) => `/images/${i + 1}.jpeg`);
 
 export default function ZytoImagesPage() {
   const [darkMode, setDarkMode] = useState(true);
