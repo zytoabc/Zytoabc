@@ -65,7 +65,7 @@ export default function Home() {
         {/* Album Cover Preview */}
         <div style={{ textAlign: 'center', marginTop: 60, marginBottom: 60 }}>
           <h2 style={{ marginBottom: 20 }}>Zyto Activities Album</h2>
-          <Link href="/ZytoImagesPage">
+          <Link href="/ZytoImages">
             <img
               src="/images/1.jpeg"
               alt="Zyto Album Cover"
@@ -85,7 +85,7 @@ export default function Home() {
 
         {/* Zyto Album Link Button (Optional) */}
         <div style={{ textAlign: 'center' }}>
-          <Link href="/ZytoImagesPage" style={styles.linkButton}>
+          <Link href="/ZytoImages" style={styles.linkButton}>
             👉 View Full Zyto Album
           </Link>
         </div>
