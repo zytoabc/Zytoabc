@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import VideoGallery from '../components/VideoGallery';
 import OverviewVideo from '../components/OverviewVideo';
+import ImageGallery from '../components/ImageGallery';
 import SocialButton from '../components/SocialButton';
 import Disclaimer from '../components/Disclaimer';
 import WelcomeSection from '../components/WelcomeSection';
@@ -61,6 +62,7 @@ export default function Home() {
         <OverviewVideo />
         <HowZytoWorks />
         <EmotionalWellness />
+           <ImageGallery darkMode={darkMode} />
 
         {/* Album Cover Preview */}
         <div style={{ textAlign: 'center', marginTop: 60, marginBottom: 60 }}>
