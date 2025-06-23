@@ -73,60 +73,65 @@ export default function ZytoImagesPage() {
         </div>
 
         {/* Pagination Controls */}
-<div style={{ marginTop: 30, textAlign: 'center' }}>
-  <button
-    disabled={currentPage === 1}
-    onClick={() => setCurrentPage((p) => p - 1)}
-    style={{
-      marginRight: 10,
-      padding: '8px 16px',
-      backgroundColor: darkMode ? '#1565C0' : '#90CAF9',
-      color: '#fff',
-      border: 'none',
-      borderRadius: 6,
-      cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-      opacity: currentPage === 1 ? 0.5 : 1,
-    }}
-  >
-    Previous
-  </button>
-  <span style={{ margin: '0 12px' }}>
-    Page {currentPage} of {totalPages}
-  </span>
-  <button
-    disabled={currentPage === totalPages}
-    onClick={() => setCurrentPage((p) => p + 1)}
-    style={{
-      marginLeft: 10,
-      padding: '8px 16px',
-      backgroundColor: darkMode ? '#1565C0' : '#90CAF9',
-      color: '#fff',
-      border: 'none',
-      borderRadius: 6,
-      cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-      opacity: currentPage === totalPages ? 0.5 : 1,
-    }}
-  >
-    Next
-  </button>
+        <div style={{ marginTop: 30, textAlign: 'center' }}>
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((p) => p - 1)}
+            style={{
+              marginRight: 10,
+              padding: '8px 16px',
+              backgroundColor: darkMode ? '#1565C0' : '#90CAF9',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 6,
+              cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+              opacity: currentPage === 1 ? 0.5 : 1,
+            }}
+          >
+            Previous
+          </button>
 
-  {/* Go to First Page Button */}
-  {currentPage !== 1 && (
-    <div style={{ marginTop: 10 }}>
-      <button
-        onClick={() => setCurrentPage(1)}
-        style={{
-          padding: '6px 12px',
-          backgroundColor: darkMode ? '#004ba0' : '#64b5f6',
-          color: '#fff',
-          border: 'none',
-          borderRadius: 6,
-          cursor: 'pointer',
-        }}
-      >
-        ⬅️ Go to First Page
-      </button>
-    </div>
+          <span style={{ margin: '0 12px' }}>
+            Page {currentPage} of {totalPages}
+          </span>
+
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage((p) => p + 1)}
+            style={{
+              marginLeft: 10,
+              padding: '8px 16px',
+              backgroundColor: darkMode ? '#1565C0' : '#90CAF9',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 6,
+              cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+              opacity: currentPage === totalPages ? 0.5 : 1,
+            }}
+          >
+            Next
+          </button>
+
+          {/* Go to First Page Button */}
+          {currentPage !== 1 && (
+            <div style={{ marginTop: 10 }}>
+              <button
+                onClick={() => setCurrentPage(1)}
+                style={{
+                  padding: '6px 12px',
+                  backgroundColor: darkMode ? '#004ba0' : '#64b5f6',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 6,
+                  cursor: 'pointer',
+                }}
+              >
+                ⬅️ Go to First Page
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Modal */}
       {showModal && (
@@ -149,6 +154,7 @@ export default function ZytoImagesPage() {
             flexDirection: 'column',
           }}
         >
+          {/* Left Arrow */}
           {selectedImageIndex! > 0 && (
             <button
               onClick={(e) => {
@@ -182,6 +188,7 @@ export default function ZytoImagesPage() {
             }}
           />
 
+          {/* Right Arrow */}
           {selectedImageIndex! < images.length - 1 && (
             <button
               onClick={(e) => {
