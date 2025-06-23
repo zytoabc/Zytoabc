@@ -146,7 +146,7 @@ export default function VideoGallery() {
                 autoPlay
                 style={{ width: '100%', height: '100%' }}
               >
-                <source src={activeVideo.src} type="video/1.mp4" />
+                <source src={activeVideo.src} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             )}
