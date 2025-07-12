@@ -1,7 +1,7 @@
 // components/Navbar.jsx
 import React from 'react';
 import Link from 'next/link';
-import './Navbar.css'; // Make sure this file exists
+import './Navbar.module.css'; // Make sure this file exists
 
 export default function Navbar({ darkMode, toggleDarkMode }) {
   return (
